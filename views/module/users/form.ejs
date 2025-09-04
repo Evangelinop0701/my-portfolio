@@ -1,0 +1,34 @@
+<%- include("../../admin/header") %>
+<%- include("../../admin/nav") %>
+
+<section id="projects" class="py-5">
+    <div class="container mt-3">
+        <div class="card mb-5">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3><%= title %></h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- ✅ Corrected action -->
+                <form action="/users/add" method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("../../admin/footer") %>

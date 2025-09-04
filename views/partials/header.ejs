@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/icon/all.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="/datatables/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Animate CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(44, 62, 80, 0.95) !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--light-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .project-card {
+            background: #34495e;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-badge {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--light-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: #1c2833;
+            color: var(--light-color);
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: var(--light-color);
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body class="container-fluid py-4">

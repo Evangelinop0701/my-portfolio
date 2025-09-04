@@ -1,0 +1,62 @@
+<!-- Footer -->
+<footer class="text-center">
+    <div class="container">
+        <p class="mb-2">&copy; <%= new Date().getFullYear() %> Evangelino Soares Saldanha. All Rights Reserved.</p>
+        <div>
+            <a href="#"><i class="fab fa-github fa-lg"></i></a>
+            <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="#"><i class="fas fa-envelope fa-lg"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="/css/bootstrap.bundle.min.js"></script>
+<script src="/jquery-3.7.0/jquery-3.7.0.min.js"></script>
+<script src="/jquery-3.7.0/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap5.min.js"></script>
+<script src="/icon/all.min.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/script.js"></script> <!-- AOS Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+            document.querySelector('.navbar').style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+        } else {
+            document.querySelector('.navbar').style.backgroundColor = 'rgba(44, 62, 80, 0.7)';
+        }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Close mobile menu on click
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuToggle = document.getElementById('navbarNav');
+    const bsCollapse = new bootstrap.Collapse(menuToggle, {
+        toggle: false
+    });
+
+    navLinks.forEach((l) => {
+        l.addEventListener('click', () => {
+            bsCollapse.toggle()
+        });
+    });
+</script>
+</body>
+
+</html>

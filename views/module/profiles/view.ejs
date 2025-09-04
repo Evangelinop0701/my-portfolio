@@ -1,0 +1,165 @@
+<%- include("../../admin/header") %>
+<%- include("../../admin/nav") %>
+
+<!-- Profile Page Styles -->
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        min-height: 100vh;
+        padding: 40px 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Card Styling */
+    .profile-card {
+        border-radius: 18px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.95);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Image Styling */
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border: 5px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .profile-img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Info Box */
+    .profile-info {
+        background: linear-gradient(to right, #dfd5eb, #d9dadd);
+        color: #333;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-name {
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+
+    .profile-title {
+        font-weight: 500;
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    .profile-bio {
+        font-style: italic;
+        line-height: 1.6;
+        background-color: #fcfcfc;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        text-align: justify;
+    }
+
+    /* Icon Styling */
+    .fa-user {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        line-height: 15px;
+        margin-right: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .d-flex {
+            flex-direction: column !important;
+            text-align: center;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+    }
+</style>
+
+<section id="profiles" class="py-5">
+    <div class="container mt-3">
+        <h2 class="section-title text-center"><%= title %></h2>
+
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-md-10">
+                <div class="card shadow-sm border-0 profile-card" data-aos="zoom-in">
+                    <div class="card-body text-center p-4">
+                        <div class="d-flex align-items-center flex-md-row flex-column">
+
+                            <!-- Profile Image -->
+                            <div class="mb-md-0 mb-3">
+                                <img src="/img/logo.jpg" alt="Profile Image" class="profile-img">
+                            </div>
+
+                            <!-- Profile Info -->
+                            <div class="profile-info ms-md-4 text-start w-100">
+                                <div class="profile-name">
+                                    <i class="fa fa-user me-2"></i>
+                                    <%= data.full_name %>, <%= data.title %>
+                                    <span class="text-primary" style="font-size: 20px;">
+                                        Junior Software Developer
+                                    </span>
+                                </div>
+
+                                <!-- Bio -->
+                                <div class="profile-bio">
+                                    <i class="fa-solid fa-feather-pointed text-primary"></i>
+                                    <%= data.bio %>
+                                </div>
+
+                                <!-- Edit Button -->
+                                <div class="my-3">
+                                    <a href="/profile/edit/<%= data.id %>"
+                                        class="btn btn-dark btn-sm rounded-pill px-3">
+                                        Edit Profile
+                                    </a>
+                                </div>
+
+                                <!-- Experience Section -->
+                                <div class="mt-3">
+                                    <h5 class="fw-bold">Experience</h5>
+                                    <hr class="mt-1 mb-2">
+
+                                    <!-- Loop Example (EJS) -->
+
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span></span>
+                                        <a href="" class="btn btn-sm text-white" style="background-color:#727272;">
+                                            Edit
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("../../admin/footer") %>

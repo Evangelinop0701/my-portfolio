@@ -1,0 +1,108 @@
+<%- include("partials/header") %>
+<%- include("partials/nav") %>
+
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h1 class="display-4 mb-4">Hi, I'm <span class="text-primary"><%= name %></span>, <%= title_bio %></h1>
+                <h2 class="mb-4">Software Developer</h2>
+                <p class="lead mb-4"><%= bio %></p>
+                <button class="btn btn-custom">Download CV</button>
+            </div>
+            <div class="col-lg-6 text-center" data-aos="fade-left">
+                <img src="https://th.bing.com/th/id/OIP.h0H0954afvQ3m1JSEAch6wHaFW?rs=1&pid=ImgDetMain"
+                    class="profile-img img-fluid" alt="Profile Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">My Projects</h2>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="project-card p-4">
+                    <h3 class="text-primary">E-commerce Platform</h3>
+                    <p>Full-featured shopping platform with payment gateway integration</p>
+                    <div class="d-flex flex-wrap gap-2 my-3">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">MongoDB</span>
+                    </div>
+                    <a href="#" class="btn btn-custom btn-sm">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+    <div class="container text-center">
+        <h2 class="section-title mb-5" data-aos="fade-up">Get In Touch</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6" data-aos="zoom-in">
+                <form>
+                    <div class="mb-3"><input type="text" class="form-control" placeholder="Your Name"></div>
+                    <div class="mb-3"><input type="email" class="form-control" placeholder="Your Email"></div>
+                    <div class="mb-3"><textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-custom">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-5 d-flex justify-content-center gap-4">
+            <a href="#" class="contact-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="contact-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Chart.js Section -->
+<div class="card mb-4 container">
+    <div class="card-header"><i class="fas fa-chart-pie"></i> Skills Chart</div>
+    <div class="card-body">
+        <canvas id="skillsChart"></canvas>
+    </div>
+</div>
+
+<!-- DataTable Section -->
+<div class="card container mb-5">
+    <div class="card-header"><i class="fas fa-table"></i> My Projects</div>
+    <div class="card-body">
+        <table id="projectsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Tech Stack</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Portfolio Website</td>
+                    <td>Node.js, Bootstrap</td>
+                    <td>2025</td>
+                </tr>
+                <tr>
+                    <td>Stock Prediction</td>
+                    <td>Python, Django</td>
+                    <td>2024</td>
+                </tr>
+                <tr>
+                    <td>Health Diagnosis</td>
+                    <td>ML, CI4</td>
+                    <td>2025</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include("partials/footer") %>
