@@ -1,0 +1,96 @@
+{
+  "categories": [
+    {
+      "ktg": "database"
+    },
+    {
+      "ktg": "Frameworks"
+    },
+    {
+      "ktg": "Programming Language"
+    },
+    {
+      "ktg": "skillset"
+    }
+  ],
+  "skills": [
+    {
+      "skill_name": "PHP",
+      "icon": "php",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": "Python",
+      "icon": "python",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": " Web Development",
+      "icon": "web-dep",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": "Problem Solving",
+      "icon": "problem-solvin",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": " Front-End Development",
+      "icon": "front-dend-dev",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": " Database Admistrator",
+      "icon": "back-dend-dev",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": "Software Documentation",
+      "icon": "soft-socx",
+      "durasaun": "2022-Preset"
+    },
+    {
+      "skill_name": " SCRUM agile Methodology",
+      "icon": "motoduloghy",
+      "durasaun": "3 moth"
+    },
+    {
+      "skill_name": "HTML",
+      "icon": "html-icon",
+      "durasaun": "2022-Preset"
+    },
+    {
+      "skill_name": "SQL",
+      "icon": "sql-icon",
+      "durasaun": "2022-Preset"
+    },
+    {
+      "skill_name": "Django",
+      "icon": "frameworks",
+      "durasaun": "2023-present"
+    },
+    {
+      "skill_name": "Codeigniter",
+      "icon": "frameworks",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": "Bootstrap",
+      "icon": "frameworks",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": "MySQL",
+      "icon": "database",
+      "durasaun": "2022-present"
+    },
+    {
+      "skill_name": "PostgreSQL",
+      "icon": "database",
+      "durasaun": "2022-present"
+    }
+  ],
+  "profiles": {
+    "name": "Evangelino Soares Saldanha"
+  }
+}

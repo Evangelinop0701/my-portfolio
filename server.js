@@ -1,11 +1,15 @@
 const express = require("express");
+const path = require("path");
+const fs = require("fs");
 const bodyParser = require("body-parser");
-const db = require("./db");                // MySQL connection
+const db = require("./db"); // MySQL connection
 const userRoutes = require("./routes/routesUsers"); // User routes
 const authRoutes = require("./routes/authRoutes"); // User routes
 const adminRoutes = require("./routes/admiRoutes"); // Admin routes
 const profileRoutes = require("./routes/profileRoutes"); // Admin routes
 const routeSkill = require("./routes/routeSkill"); // Admin routes
+const aipRoutes = require("./api/all_api"); // API routes
+const aboutRoutes = require("./routes/aboutRoutes"); // API routes
 const session = require('express-session');
 
 const app = express();
@@ -16,7 +20,9 @@ app.use(session({
   secret: 'mysecretkey123', // change to a strong secret in production
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 1000 * 60 * 60 } // 1 hour
+  cookie: {
+    maxAge: 1000 * 60 * 60
+  } // 1 hour
 }));
 app.use((req, res, next) => {
   res.locals.session = req.session;
@@ -24,8 +30,10 @@ app.use((req, res, next) => {
 });
 // Middleware
 app.use(express.static("public"));
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submissions
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+})); // for HTML form submissions
 
 // Attach db connection to req
 app.use((req, res, next) => {
@@ -43,6 +51,7 @@ app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/profile", profileRoutes);
 app.use("/skills", routeSkill);
+app.use("/api", aipRoutes);
 
 // Home page
 app.get("/", (req, res) => {

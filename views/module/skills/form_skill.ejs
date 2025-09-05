@@ -1,0 +1,43 @@
+<%- include("../../admin/header") %>
+<%- include("../../admin/nav") %>
+<section id="projects" class="py-5">
+    <div class="container mt-3">
+        <div class="card mb-5">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3><%= title %></h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="my-2">
+
+                    <form action="/skills/add" method="post">
+                        <div class="mb-3">
+                            <label for="skill" class="form-label">Skill</label>
+                            <input type="text" class="form-control" id="skill" name="skill" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="kategori" class="form-label">Kategoria</label>
+                            <input type="text" class="form-control" id="ktg" name="ktg" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="icon" class="form-label">Icon</label>
+                            <input type="text" class="form-control" id="icon" name="icon" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="durasaun" class="form-label">Durasaun</label>
+                            <input type="text" class="form-control" id="durasaun" name="durasaun" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>
+                            Save</button>
+                        <a href="/skills" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>
+                            Back</a>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include("../../admin/footer") %>
