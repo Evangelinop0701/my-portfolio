@@ -8,7 +8,7 @@
 body {
     background-color: var(--light-color);
     color: var(--dark-color);
-    font-family: 'Poppins', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .navbar {
@@ -48,4 +48,15 @@ body {
 
 .profile-img:hover {
     transform: scale(1.05);
+}
+
+
+
+
+#card-text {
+    color: var(--dark-color);
+    font-size: 12px;
+    line-height: 1.8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
