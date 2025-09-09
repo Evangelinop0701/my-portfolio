@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Activity Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar/dist/github-calendar.css">
+    <style>
+        :root {
+            --primary: #58a6ff;
+            --bg-dark: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-light: #c9d1d9;
+            --text-muted: #8b949e;
+            --success: #3fb950;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding-top: 20px;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: rgba(88, 166, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
+            font-weight: 600;
+            color: var(--primary);
+            border-radius: 10px 10px 0 0 !important;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .visitor-counter {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+            text-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
+        }
+
+        .counter-label {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .counter-icon {
+            font-size: 2.5rem;
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(88, 166, 255, 0.08);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .github-calendar {
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 1rem;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .flab-counter {
+            background: linear-gradient(135deg, rgba(63, 185, 80, 0.15) 0%, rgba(88, 166, 255, 0.15) 100%);
+            border: 1px solid rgba(63, 185, 80, 0.3);
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .flab-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success);
+            margin: 10px 0;
+        }
+
+        .flab-label {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .progress {
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background-color: var(--success);
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        .btn-primary:hover {
+            background-color: #4493f6;
+            border-color: #4493f6;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .counter-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1><i class="fab fa-github me-2"></i>GitHub Activity</h1>
+            <p>Track your contributions and visitors</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="far fa-calendar-alt me-2"></i>Contribution Calendar
+                    </div>
+                    <div class="card-body">
+                        <div class="github-calendar" id="github-calendar">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                <p>Loading contribution data...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-eye me-2"></i>Visitors
+                    </div>
+                    <div class="card-body">
+                        <div class="visitor-counter">
+                            <div class="counter-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="counter-number" id="visitor-count">1,247</div>
+                            <div class="counter-label">Total Page Visitors</div>
+
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number" id="today-count">42</div>
+                                    <div class="stat-label">Today</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number" id="week-count">218</div>
+                                    <div class="stat-label">This Week</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number" id="month-count">893</div>
+                                    <div class="stat-label">This Month</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line me-2"></i>FLAB Counter
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            <div class="flab-number">1%</div>
+                            <div class="flab-label">FLAB Counter Progress</div>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 1%"></div>
+                            </div>
+
+                            <p class="text-muted">Set more goals to increase your FLAB counter!</p>
+
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus me-2"></i>Set Goals
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>GitHub Activity Dashboard &copy; 2023 | Made with <i class="fas fa-heart text-danger"></i></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/github-calendar/dist/github-calendar.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize GitHub calendar
+            try {
+                GitHubCalendar("#github-calendar", "Evangelinop0701", {
+                    responsive: true,
+                    global_stats: true,
+                    tooltips: true
+                }).then(() => {
+                    console.log("GitHub calendar loaded successfully");
+                });
+            } catch (error) {
+                console.error("GitHub calendar error:", error);
+                document.getElementById('github-calendar').innerHTML = `
+          <div class="text-center text-muted">
+            <i class="fas fa-exclamation-triangle fa-2x mb-3"></i>
+            <p>Unable to load contribution data</p>
+          </div>
+        `;
+            }
+
+            // Initialize visitor counter with random but realistic values
+            function updateCounter(elementId, value) {
+                const element = document.getElementById(elementId);
+                let current = parseInt(element.textContent.replace(/,/g, ''));
+                const increment = Math.ceil(value / 20);
+                let displayValue = 0;
+
+                const timer = setInterval(() => {
+                    displayValue += increment;
+                    if (displayValue >= value) {
+                        displayValue = value;
+                        clearInterval(timer);
+                    }
+                    element.textContent = displayValue.toLocaleString();
+                }, 50);
+            }
+
+            // Set random but realistic visitor counts
+            updateCounter('visitor-count', 1247);
+            updateCounter('today-count', 42);
+            updateCounter('week-count', 218);
+            updateCounter('month-count', 893);
+        });
+    </script>
+</body>
+
+</html>

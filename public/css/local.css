@@ -60,3 +60,111 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
+
+.tech-badge {
+    font-size: 12px;
+}
+
+
+* Card hover effect */ .project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* GitHub hover icon */
+.github-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 1.5rem;
+    color: #333;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .github-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.github-icon:hover {
+    color: #007bff;
+    background: #f1f1f1;
+}
+
+/* Tech badges */
+.tech-badge {
+    background: #f0f8ff;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #007bff;
+    transition: background 0.3s, color 0.3s;
+}
+
+.tech-badge:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+
+
+.calendar-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+}
+
+#github-calendar {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+}
+
+.spinner {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto 1rem;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left-color: #58a6ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    color: #f85149;
+    text-align: center;
+    padding: 2rem;
+}
+
+.calendar-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #8b949e;
+}
